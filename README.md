@@ -57,10 +57,13 @@
 
 项目包含两个主要页面：
 
-- **控制面板**: 访问根路径 `http://localhost:10630/`
-- **显示面板**: 访问路径 `http://localhost:10630/control`
+- **控制面板**: 访问根路径 `http://localhost:10630/`对应OBS中的**停靠窗口**
+- **显示面板**: 访问路径 `http://localhost:10630/control`对应OBS中的**源**
 
-通常，您只需要打开**控制面板**。控制面板右侧的预览区已经内嵌了显示面板。您也可以点击预览区上方的“在新窗口打开”链接，来打开一个独立的、有声音的显示面板。
+通常在安装完OBS之后，你需要：
+
+- 在 `停靠窗口 - 自定义浏览器停靠窗口` 处，将`http://localhost:10630/`粘贴进**URL**一栏，**停靠窗口名称**任意填写
+- 在 `源 - 添加 - 浏览器` 处，将`http://localhost:10630/control`粘贴进**URL**一栏，**宽度高度**根据直播分辨率大小设置（参考设置：1920x1080）
 
 #### 2. 加载任务文件
 
@@ -140,8 +143,8 @@
 1.  **克隆项目**
 
     ```bash
-    git clone https://github.com/lanseria/LaunchDeck-nuxt-app.git
-    cd LaunchDeck-nuxt-app
+    https://github.com/Joey0609/LaunchDeck-nuxt-app-OBS.git
+    cd LaunchDeck-nuxt-app-OBS
     ```
 
 2.  **安装依赖**
@@ -189,4 +192,4 @@
 
 ### 许可证
 
-[MIT](./LICENSE) © 2024 Lanseria
+[MIT](./LICENSE) © 2024 Lanseria, Joey0609

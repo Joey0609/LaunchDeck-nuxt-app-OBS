@@ -123,24 +123,6 @@ onUnmounted(controlStore.dispose)
           </div>
         </div>
 
-        <!-- 视频配置 -->
-        <div class="border rounded-md p-4 space-y-4 dark:border-gray-600">
-          <h2 class="mb-3 text-xl font-semibold">
-            视频配置
-          </h2>
-          <label class="btn-primary w-full cursor-pointer text-center">
-            {{ controlStore.videoBlobUrl ? '更换视频' : '选择视频文件' }}
-            <input type="file" accept="video/*" class="hidden" @change="handleVideoFileSelect">
-          </label>
-          <div v-if="!controlStore.videoBlobUrl" class="text-sm text-yellow-500 font-semibold">
-            请选择一个视频文件以启动模拟。
-          </div>
-          <div>
-            <label class="text-sm font-medium">视频起始偏移 (秒)</label>
-            <input v-model.number="controlStore.missionData.videoConfig!.startTimeOffset" type="number" class="input-field w-full">
-          </div>
-        </div>
-
         <!-- 事件编辑器 -->
         <div class="border rounded-md p-4 dark:border-gray-600">
           <h2 class="mb-3 text-xl font-semibold">
@@ -174,7 +156,6 @@ onUnmounted(controlStore.dispose)
           </h2>
           <div class="grid grid-cols-2 gap-4">
             <button
-              :disabled="!controlStore.videoBlobUrl"
               class="btn-primary text-lg"
               @click="controlStore.toggleLaunch"
             >

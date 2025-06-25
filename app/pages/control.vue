@@ -196,33 +196,7 @@ watch(() => [
 
 <template>
   <Adapter>
-    <div class="relative h-full w-full overflow-hidden bg-black">
-      <video
-        ref="videoRef"
-        key="launch-video"
-        playsinline
-        :muted="isMuted"
-        class="absolute left-0 top-0 z-0 h-full w-full object-cover"
-        preload="auto"
-        @loadedmetadata="() => {
-          if (displayStore.telemetry.syncVideoToTime !== undefined && videoRef && displayStore.telemetry.videoConfig?.type === 'local') {
-            const initialSyncTime = Math.max(0, displayStore.telemetry.syncVideoToTime);
-            if (Math.abs(videoRef!.currentTime - initialSyncTime) > SYNC_TOLERANCE) {
-              isSeeking = false;
-              seekVideo(initialSyncTime);
-            }
-          }
-          if (displayStore.telemetry.isPlaying && videoRef?.paused) {
-            playVideoWithSound();
-          }
-        }"
-        @error="handleVideoError"
-        @seeked="handleVideoSeeked"
-        @stalled="handleVideoStalled"
-        @waiting="handleVideoWaiting"
-      >
-        Your browser does not support the video tag.
-      </video>
+    <div class="relative h-full w-full overflow-hidden bg-transparent">
       <div
         v-if="showPlayButton"
         class="absolute inset-0 z-20 flex flex-col cursor-pointer items-center justify-center bg-black bg-opacity-50"
